@@ -1,10 +1,9 @@
-import { Jungang, SportsChosun, SportsDonga } from "./components/index";
-
-console.log('Hello world!');
-// SportsChosun();
-// SportsDonga();
+import { CreateMessage } from "./components/index";
+import { urls } from "./config";
 
 (async() => {
-  const message = await Jungang();
-  console.log(message);
+  const { message, title } = await CreateMessage(urls[1]);
+  if (message != '' && title != '') {
+    console.log(title + '\n' + message);
+  }
 })();

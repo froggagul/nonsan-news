@@ -15,6 +15,7 @@
         "error",
         2
       ],
-      "semi":"error"
+      "semi": ["error", "always"],
+      "object-curly-newline": "off"
     }
   }
