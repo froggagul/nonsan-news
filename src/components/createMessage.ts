@@ -35,14 +35,14 @@ const getMessage = async (url: string):Promise<{
   title: string;
 }> => {
   const feed = await parser.parseURL(url)
-    .catch((err) => {
+    .catch((err: any) => {
       console.log(err);
     });
   // console.log('feed', feed);
   if (feed) {
     const items = feed.items;
     let message = '';
-    items?.forEach((item) => {
+    items?.forEach((item: any) => {
       const title = item.title;
       const content = filterContent(item.content || '');
       if (isIncluded(keywords, content)) {
