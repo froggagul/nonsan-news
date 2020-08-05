@@ -27,7 +27,7 @@ async function gatherReply(posts: any[]) {
     let m = `${post.author.username}님의 댓글: ${post.content}\n`;
     if (m.length + message.length < maxLen) {
       ids.push(post._id);
-      message = message + m;
+      message = message + '<br/>' + m;
     } else {
       messages.push(message);
       message = m;
@@ -47,7 +47,7 @@ async function gatherReply(posts: any[]) {
     .then((res) => {
       const title = `${todayDate()}일자 친구들의 편지`;
       messages.forEach((m) => {
-        sendMessage(title, message);
+        sendMessage(title + '4분대 이은서', message);
       });
     })
     .catch((err) => {
