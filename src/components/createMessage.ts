@@ -46,9 +46,9 @@ const getMessage = async (url: string):Promise<{
       const title = item.title;
       const content = filterContent(item.content || '');
       if (isIncluded(keywords, content)) {
-        message = `-${title}\n ${content}\n${message}`;
+        message = `-${title}<br />${content}<br />${message}`;
       } else {
-        message = `${message}-${title}\n ${content}\n`;
+        message = `${message}-${title}<br />${content}<br />`;
       }
     });
     const title = `${feed.title || ''} ${todayDate()}`;

@@ -10,5 +10,5 @@ import { urls } from "./config";
       console.log('no news!');
     }
   });
-  GetReply();
+  // GetReply();
 })();
