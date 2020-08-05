@@ -12,8 +12,11 @@
   },
   "dependencies": {
     "@types/node": "^14.0.27",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.4",
     "rss-parser": "^3.8.0",
+    "the-camp-lib": "^2.3.0",
     "typescript": "^3.9.6"
   },
   "devDependencies": {
