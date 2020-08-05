@@ -1,2 +1,3 @@
 export {default as CreateMessage} from './createMessage';
-export {default as SendReply} from './sendReply';
+export {default as GetReply} from './getReply';
+export {default as sendMessage} from './sendMessage';
