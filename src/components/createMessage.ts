@@ -51,9 +51,10 @@ const getMessage = async (url: string):Promise<{
         message = `${message}-${title}\n ${content}\n`;
       }
     });
+    const title = `${feed.title || ''} ${todayDate()}`;
     return {
-      message: message.slice(0, 2000),
-      title: `${feed.title || ''} ${todayDate()}`
+      message: message.slice(0, 1470),
+      title: title
     };
   }
   return {
