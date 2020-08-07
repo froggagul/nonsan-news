@@ -1,1 +1,1 @@
-worker: ts-node schedule.ts
+worker: ts-node scheduler.ts
