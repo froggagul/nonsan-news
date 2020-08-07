@@ -16,6 +16,7 @@
     "nodemon": "^2.0.4",
     "rss-parser": "^3.8.0",
     "the-camp-lib": "^2.3.0",
+    "ts-node": "^8.10.2",
     "typescript": "^3.9.6"
   },
   "devDependencies": {
