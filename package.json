@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf ./build && tsc",
     "dev": "nodemon",
     "start": "ts-node ./src/index.ts",
     "lint": "eslint . --ext .ts",
