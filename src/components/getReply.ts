@@ -56,18 +56,28 @@ async function gatherReply(posts: any[]) {
 }
 
 async function getReply() {
-  Axios.request({
-    url: `${backUrl}/send/last`,
-    method: "get",
-    headers: {
-      Cookie: key.cookie
-    }
+  Axios.post(`${backUrl}/auth/login`, {
+    email: key.ADMIN_ID,
+    password: key.ADMIN_PW
   })
-    .then((res: any) => {
-      gatherReply(res.data.result.posts);
+    .then((res) => {
+      return res.headers['set-cookie'];
     })
-    .catch((err: any) => {
-      console.dir(err);
+    .then((cookie) => {
+      Axios.request({
+        url: `${backUrl}/send/last`,
+        method: "get",
+        headers: {
+          Cookie: cookie[1]
+        }
+      })
+        .then((res: any) => {
+          console.log(res.data);
+          gatherReply(res.data.result.posts);
+        })
+        .catch((err: any) => {
+          console.dir(err);
+        })    
     })
 }
 
