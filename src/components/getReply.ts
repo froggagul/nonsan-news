@@ -34,21 +34,33 @@ async function gatherReply(posts: any[]) {
     }
   });
   messages.push(message);
-  Axios.request({
-    url: `${backUrl}/send/sended`,
-    method: "post",
-    headers: {
-      Cookie: key.cookie
-    },
-    data: {
-      ids
-    }
+  Axios.post(`${backUrl}/auth/login`, {
+    email: key.ADMIN_ID,
+    password: key.ADMIN_PW
   })
     .then((res) => {
-      const title = `${todayDate()}일자 친구들의 편지`;
-      messages.forEach((m) => {
-        sendMessage(title + '4분대 이은서', message);
-      });
+      return res.headers['set-cookie'];
+    })
+    .then((cookie) => {
+      Axios.request({
+        url: `${backUrl}/send/sended`,
+        method: "post",
+        headers: {
+          Cookie: cookie[1]
+        },
+        data: {
+          ids
+        }
+      })
+        .then(() => {
+          const title = `${todayDate()}일자 친구들의 편지`;
+          messages.forEach((m) => {
+            sendMessage(title + '4분대 이은서', message);
+          });
+        })
+        .catch((err) => {
+          console.dir(err);
+        })
     })
     .catch((err) => {
       console.dir(err);
@@ -78,6 +90,9 @@ async function getReply() {
         .catch((err: any) => {
           console.dir(err);
         })    
+    })
+    .catch((err) => {
+      console.dir(err);
     })
 }
 
