@@ -5,7 +5,7 @@ import { urls } from "./config";
   urls.forEach(async (url: string) => {
     const { message, title } = await CreateMessage(url);
     if (message != '' && title != '') {
-      sendMessage(title+ ' 4분대 이은서', message);
+      sendMessage(title+ ' - 26연대 최동혁', message);
     } else {
       console.log('no news!');
     }
