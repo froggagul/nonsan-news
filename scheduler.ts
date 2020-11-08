@@ -6,7 +6,7 @@ import { urls } from "./src/config";
     const { message, title } = await CreateMessage(url);
     if (message != '' && title != '') {
         console.log(message);
-      sendMessage(title+ ' 4분대 이은서', message);
+      sendMessage(title+ ' - 26연대 최동혁', message);
     } else {
       console.log('no news!');
     }
